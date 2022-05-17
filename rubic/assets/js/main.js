@@ -4,7 +4,9 @@
 //|  __| / __| __/ _ \ '_ \ / _` | '_ \  |  _ < / _` / __/ __|/ _ \ 
 // | |____\__ \ ||  __/ |_) | (_| | | | | | |_) | (_| \__ \__ \ (_) |
 // |______|___/\__\___|_.__/ \__,_|_| |_| |____/ \__,_|___/___/\___/ 
-// Simulador Interactivo        
+// Simulador Interactivo  
+const formatos = new Array ('libro','comic','revista')
+console.log(formatos)
 
 var valorTotal          = 0;
 const valorLibro          = 1000;
