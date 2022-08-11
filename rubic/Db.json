@@ -1,0 +1,14 @@
+{
+    "libro": {
+      "nombre": "Libro",
+      "precio": "1000"
+    },
+    "comic": {
+      "nombre": "Comic",
+      "precio": "750"
+    },
+    "revista": {
+      "nombre": "Revista",
+      "precio": "300"
+    }
+  }

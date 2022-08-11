@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en">
+    <script>
+         //______     _       _                   ____
+        //|  ____|   | |     | |                 |  _ \                     
+        // | |__   ___| |_ ___| |__   __ _ _ __   | |_) | __ _ ___ ___  ___
+        //|  __| / __| __/ _ \ '_ \ / _` | '_ \  |  _ < / _` / __/ __|/ _ \ 
+        // | |____\__ \ ||  __/ |_) | (_| | | | | | |_) | (_| \__ \__ \ (_) |
+        // |______|___/\__\___|_.__/ \__,_|_| |_| |____/ \__,_|___/___/\___/ 
+        // Simulador Interactivo   </script>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Start your development with Rubic landing page.">
+    <meta name="author" content="Devcrud">
+    <title>Shioko Imprenta</title>
+    <!-- font icons -->
+    <link rel="stylesheet" href="assets/vendors/themify-icons/css/themify-icons.css">
+    <!-- Bootstrap + Rubic main styles -->
+    <link rel="stylesheet" href="assets/css/rubic.css">
+    <script lang="javascript" src="assets/js/xlsx.full.min.js"></script>  
+    <script lang="javascript" src="assets/js/FileSaver.js"></script>
+</head>
+
+<body data-spy="scroll" data-target=".navbar" data-offset="40" id="home">
+
+    <nav id="scrollspy" class="navbar page-navbar navbar-dark navbar-expand-md fixed-top" data-spy="affix"
+        data-offset-top="20">
+        <div class="container">
+            <a class="navbar-brand" href="#"><strong class="text-primary">Shioko</strong><span
+                    class="text-light">Imprenta</span></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#presupuesto">Presupuestar</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">Nosotros</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#pricing">Ofertas</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#review">Clientes</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contacto</a>
+                    </li>
+                    
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <header class="header d-flex justify-content-center">
+        <div class="container">
+            <div class="row h-100 align-items-center">
+                <div class="col-md-7">
+                    <div class="header-content">
+                        <h3 class="header-title"><strong class="text-primary">Shioko</strong><span> Imprenta</span></h3>
+                        <h4 class="header-subtitle">Presupuestos, impresiones , armado y distribucion </h4>
+                        <p>Somos una empresa con mas de 10 años de experiencia en el rubro.
+                            Con profesionales en cada area que te acompañaran en todo el proceso, desde la idea, 
+                            hasta los estantes en las librerias.
+                        </p>
+                       
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </header>
+    <div class="social-wrapper" id="presupuesto">
+        <div class="container">
+            <div class="social-txt">
+                <h6 class="title">Social Media</h6>
+                <p class="subtitle">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Possimus voluptate numquam
+                    sed expedita vitae ipsa?</p>
+            </div>
+            <div class="social-links">
+                <a href="javascript:void(0)" class="link"><i class="ti-facebook"></i></a>
+                <a href="javascript:void(0)" class="link"><i class="ti-instagram"></i></a>
+
+            </div>
+        </div>
+    </div>
+    <section class="section">
+        <div class="container">
+            <div class="row justify-content-around">
+                <div class="col-lg-8">
+                    <h1 class="title"></h1>
+                    <h1 class="title">Calculadora de presupuesto</h1>
+                    <!--
+
+                        Unifique el archivo JS con el Archivo Html trabajando dentro del boddy
+
+                        Para el trabajo final modificare el template que estoy usando e ire trabajando sobre el mismo
+                    -->
+                    <h2 class="title">Ingrese su nombre</h2>
+                    <input type="text" id="nombre" name="nombre"><br><br>
+                    
+                    <form id="form">
+                        <h6>¿Que desea presupuestar?</h6>
+<!--
+
+    Reemplaze los "Promt" por botones Radio para simplicar la interfaz y que el usuario no deba escribir.
+-->
+                        <input type="radio" id="tipoLibro" name="tipo" value=1>
+                        <label for="tipoLibro">Libro</label><br>
+                        <input type="radio" id="tipoComic" name="tipo" value=2>
+                        <label for="tipoComic">Comic</label><br>
+                        <input type="radio" id="tipoRevista" name="tipo" value=3>
+                        <label for="tipoRevista">Revista</label>
+
+                        <h6>¿Desea imprimir a color?</h6>
+                        <input type="radio" id="colorSi" name="color" value=1>
+                        <label for="colorSi">Si</label><br>
+                        <input type="radio" id="colorNo" name="color" value=0>
+                        <label for="colorNo">No</label><br>
+
+                        <h6>¿Que cantidad de paginas tiene su articulo? Max:1000</h6>
+                        <input type="number" id="cantidad" name="cantidad"><br><br>
+
+                        <input type="submit" value="Calcular">
+                        
+                    </form>
+
+                    <button id="recuperar" onclick="mostrarLocal()">Ver último presupuesto generado</button>
+<!-- 
+
+    Aqui comienza el Javascrip que anteriormente estaba en mi archivo "Main.js"
+-->
+                    <script>
+
+                        //inicializacion de la página
+                        var valorTotal = 0;
+                        var totalLocal = localStorage.getItem("totalLocal");
+                        var form = document.forms['form'];
+
+                        if (totalLocal!=0){
+                            valorTotal = localStorage.getItem("totalLocal") 
+                        }
+
+                        //Fin de inicializacion
+
+                        //El funcionamiento de la calculadora es el mismo pero necesitaba que ahora interactue con los datos del formulario
+
+                        form.onsubmit = function (e) {
+                            e.preventDefault();
+
+                            const formatos = new Array('libro', 'comic', 'revista');
+                            var tipos = document.getElementsByName('tipo');
+                            var colores = document.getElementsByName('color');
+                            var cantidad = document.getElementById("cantidad").value;
+
+                            let valorTotalLibro = 0;
+                            let valorTotalColor = 0;
+                            let valorTotalCantidad = 0;
+
+                            valorTotalLibro = calcularTipo(tipos);
+                            valorTotalColor = calcularColor(colores);
+                            valorTotalCantidad = calcularCantidad(cantidad);
+                            valorTotal = valorTotalLibro + valorTotalColor + valorTotalCantidad;
+                            alert("Su total es de: $" + valorTotal);
+                            localStorage.setItem("totalLocal",valorTotal);
+                        }
+
+                        function calcularTipo(tipos) {
+
+                            const valorLibro = 1000;
+                            const valorComic = 750;
+                            const valorRevista = 300;
+
+                            let total = 0;
+
+                            let tipoSeleccionado = 0;
+
+                            for (var tipo of tipos) {
+                                if (tipo.checked) {
+                                    tipoSeleccionado = tipo.value;
+                                    break;
+                                }
+                            }
+
+                            switch (tipoSeleccionado) {
+                                case "1":
+                                    total = valorLibro;
+                                    break;
+                                case "2":
+                                    total = valorRevista;
+                                    break;
+                                case "3":
+                                    total = valorComic;
+                                    break;
+
+                            }
+
+                            return total;
+                        }
+
+                        function calcularColor(colores) {
+                            const valorColor = 1000;
+                            const valorBlancoYNegro = 500;
+
+                            let total = 0;
+
+                            let colorSeleccionado = 0;
+
+                            for (var color of colores) {
+                                if (color.checked) {
+                                    colorSeleccionado = color.value;
+                                    break;
+                                }
+                            }
+
+                            switch (colorSeleccionado) {
+                                case "1":
+                                    total = valorColor;
+                                    break;
+                                case "0":
+                                    total = valorBlancoYNegro;
+                                    break;
+
+                            }
+
+                            return total;
+                        }
+
+                        function calcularCantidad(cantidad) {
+
+                            let total;
+
+                            if (cantidad <= 100) {
+                                total = 500;
+                            } else if (cantidad > 100 && cantidad <= 500) {
+                                total = 1000;
+                            } else if (cantidad > 500 && cantidad <= 1000) {
+                                total = 1500;
+                            } else {
+                                alert("El libro no puede superar las 1000 páginas");
+                            }
+
+                            return total;
+                            
+                        }
+
+                        function mostrarLocal(){
+                            valorTotal = localStorage.getItem("totalLocal");
+                            if(valorTotal == 0){
+                                alert("No existe un presupuesto previo.")
+                            }else{
+                                alert("Su presupuesto anterior es: $"  + valorTotal)
+                            }
+                        };
+            
+
+                    </script>
+
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+    <section class="section">
+        <div class="container">
+            <div class="row justify-content-between">
+                <div class="col-md-5 align-self-center mb-4 mb-md-0">
+                    <img src="assets/imgs/img.jpg" alt="" class="shadow w-100">
+                </div>
+                <div class="col-md-6 col-lg-5">
+                    <h6 class="title">Section with Media list</h6>
+                    <p>Consectetur adipisicing elit. Quam odit odio et neque perferendis perspiciatis magnam hic ut
+                        facilis possimus!consectetur adipisicing elit. Impedit repellat ipsam quaerat error odit
+                        commodi.</p>
+                    <ul class="list-unstyled mt-4">
+                        <li class="media">
+                            <div class="circle-40 mr-3 mt-1"><i class="ti-gift"></i></div>
+                            <div class="media-body">
+                                <h6 class="mb-2">List-based media object</h6>
+                                <p>Cras sit amet nibh libero, in gravida nulla.</p>
+                            </div>
+                        </li>
+                        <li class="media">
+                            <div class="circle-40 mr-3 mt-1"><i class="ti-face-smile"></i></div>
+                            <div class="media-body">
+                                <h6 class="mb-2">Another one</h6>
+                                <p>Cras in gravida nulla. Nulla vel metus scelerisque ante sollicitudin.</p>
+                            </div>
+                        </li>
+                        <li class="media">
+                            <div class="circle-40 mr-3 mt-1"><i class="ti-microphone"></i></div>
+                            <div class="media-body">
+                                <h6 class="mb-2">One more</h6>
+                                <p>Nulla vel metus scelerisque ante sollicitudin. Cras purus odio.</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="section">
+        <div class="container">
+            <div class="row justify-content-between">
+                <div class="col-md-6 col-lg-5 align-self-center">
+                    <h6 class="title">Standard Picture Section</h6>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio ut voluptatum ipsum. Rerum
+                        fuga cumque illo nihil nobis vero ducimus, animi voluptatum nemo facilis quae quia odit
+                        accusantium doloremque? Totam.</p>
+                    <p><strong>Adipisicing elit. Quos ad doloribus numquam cum odio dolorem!</strong></p>
+                    <p>Rerum fuga cumque consectetur adipisicing elit. Pariatur quis ipsum facere officiis magni ullam
+                        quasi fuga magnam dicta quas.</p>
+                </div>
+                <div class="col-md-5 mt-4 mt-md-0">
+                    <img src="assets/imgs/img1.jpg" alt="" class="shadow w-100">
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="section" id="about">
+        <div class="container text-center">
+            <h6 class="display-4 has-line">WHY THIS IS AWESOME</h6>
+            <p class="mb-5 pb-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+
+            <div class="row">
+                <div class="col-lg-4">
+                    <div class="circle-100 mb-3"><i class="ti-light-bulb"></i></div>
+                    <h6 class="title mb-3">Thoughtful Design</h6>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptas eveniet laborum, vero
+                        doloremque sunt tempora.</p>
+                </div>
+                <div class="col-lg-4">
+                    <div class="circle-100 mb-3"><i class="ti-paint-bucket"></i></div>
+                    <h6 class="title mb-3">WELL CRAFTED</h6>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptas eveniet laborum, vero
+                        doloremque sunt tempora.</p>
+                </div>
+                <div class="col-lg-4">
+                    <div class="circle-100 mb-3"><i class="ti-marker-alt"></i></div>
+                    <h6 class="title mb-3">EASY TO CUSTOMIZE</h6>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptas eveniet laborum, vero
+                        doloremque sunt tempora.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="section" id="pricing">
+        <div class="container text-center">
+            <h6 class="display-4 has-line">PRICING OPTIONS</h6>
+            <p class="mb-5 pb-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            <div class="row pt-5">
+                <div class="col-lg-4">
+                    <a href="javascript:void(0)" class="pricing-card">
+                        <div class="head">Basib</div>
+                        <div class="body">
+                            <h1><small>$</small>0</h1>
+                            <p>Free for Life</p>
+                        </div>
+                        <ul class="list-group">
+                            <li class="list-group-item">1 GB OF SPACE</li>
+                            <li class="list-group-item">10 GB OF BANDWIDTH</li>
+                            <li class="list-group-item">3 WEBSITES</li>
+                            <li class="list-group-item">BASIC CUSTOMIZATION</li>
+                            <li class="list-group-item">WORDPRESS INTEGRATION</li>
+                            <li class="list-group-item">EMAIL SUPPORT</li>
+                        </ul>
+                    </a>
+                </div>
+                <div class="col-lg-4">
+                    <a href="javascript:void(0)" class="pricing-card popular">
+                        <div class="head">Professional</div>
+                        <div class="body">
+                            <h1><small>$</small>14.99</h1>
+                            <p>Monthly Payment</p>
+                        </div>
+                        <div class="popular-item">OUR MOST POPULAR</div>
+                        <ul class="list-group">
+                            <li class="list-group-item">5 GB OF SPACE</li>
+                            <li class="list-group-item">50 GB OF BANDWIDTH</li>
+                            <li class="list-group-item">10 WEBSITES</li>
+                            <li class="list-group-item">ADVANCED CUSTOMIZATION</li>
+                            <li class="list-group-item">WORDPRESS INTEGRATION</li>
+                            <li class="list-group-item">EMAIL SUPPORT</li>
+                        </ul>
+                    </a>
+                </div>
+                <div class="col-lg-4">
+                    <a href="javascript:void(0)" class="pricing-card">
+                        <div class="head">Enterprise</div>
+                        <div class="body">
+                            <h1><small>$</small>99</h1>
+                            <p>Monthly Payment</p>
+                        </div>
+                        <ul class="list-group">
+                            <li class="list-group-item">UNLIMITED OF SPACE</li>
+                            <li class="list-group-item">UNLIMITED BANDWIDTH</li>
+                            <li class="list-group-item">120 WEBSITES</li>
+                            <li class="list-group-item">ADVANCED CUSTOMIZATION</li>
+                            <li class="list-group-item">WORDPRESS INTEGRATION</li>
+                            <li class="list-group-item">EMAIL SUPPORT</li>
+                        </ul>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="section" id="review">
+        <div class="container text-center">
+            <h6 class="display-4 has-line">WHAT OUR CUSTOMERS ARE SAYING</h6>
+            <p class="mb-5 pb-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            <div class="row text-left">
+                <div class="col-md-4">
+                    <div class="testmonial">
+                        <p class="description"><i>Hace dos meses que estoy esperando el producto y no me llega nada, quiero un rembolso por favor</i></p>
+                        <div class="media">
+                            <img class="mr-3" src="assets/imgs/avatar1.jpg" width="60" alt="Generic placeholder image">
+                            <div class="media-body">
+                                <h6 class="title">Oso Lopez Sales</h6>
+                                <p class="text-muted">Otaku insaciable</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="testmonial">
+                        <p class="description"><i>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Excepturi,
+                                eaque, repellat. Corporis facilis reprehenderit, cupiditate.</i></p>
+                        <div class="media">
+                            <img class="mr-3" src="assets/imgs/avatar2.jpg" width="60" alt="Generic placeholder image">
+                            <div class="media-body">
+                                <h6 class="title">John Doe</h6>
+                                <p class="text-muted">Freelancer</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="testmonial">
+                        <p class="description"><i>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Excepturi,
+                                eaque, repellat. Corporis facilis reprehenderit, cupiditate.</i></p>
+                        <div class="media">
+                            <img class="mr-3" src="assets/imgs/avatar3.jpg" width="60" alt="Generic placeholder image">
+                            <div class="media-body">
+                                <h6 class="title">Emily Roe</h6>
+                                <p class="text-muted">Graphic Designer</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="section has-img-bg text-center">
+        <div class="container">
+            <h6 class="display-3 has-line">STYLISH AXURE DESIGN</h6>
+            <h5 class="mb-5 font-weight-light">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore,
+                itaque.</h5>
+            <button class="btn btn-outline-light btn-flat">Download</button>
+        </div>
+    </section>
+    <section class="section" id="contact">
+        <div class="container text-center">
+            <h6 class="display-4 has-line">CONTACT US</h6>
+            <p class="mb-5 pb-2">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+
+            <form>
+                <div class="row mb-4">
+                    <div class="col-md-6">
+                        <div class="form-group pb-1">
+                            <input type="text" class="form-control" required placeholder="Name">
+                        </div>
+                        <div class="form-group pb-1">
+                            <input type="email" class="form-control" required placeholder="Email">
+                        </div>
+                        <div class="form-group ">
+                            <input type="text" class="form-control" placeholder="Subject">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <textarea name="" id="" cols="" rows="7" class="form-control" required
+                            placeholder="Message"></textarea>
+                    </div>
+                </div>
+                <input type="submit" class="btn btn-primary btn-block" value="Send Message">
+            </form>
+        </div>
+    </section>
+    <footer class="footer py-4 bg-dark text-light">
+        <div class="container text-center">
+            <p class="mb-4 small">Copyright
+                <script>document.write(new Date().getFullYear())</script> &copy; <a
+                    href="http://www.devcrud.com">DevCRUD</a>
+            </p>
+            <div class="social-links">
+                <a href="javascript:void(0)" class="link"><i class="ti-facebook"></i></a>
+                <a href="javascript:void(0)" class="link"><i class="ti-twitter-alt"></i></a>
+                <a href="javascript:void(0)" class="link"><i class="ti-google"></i></a>
+                <a href="javascript:void(0)" class="link"><i class="ti-pinterest-alt"></i></a>
+                <a href="javascript:void(0)" class="link"><i class="ti-instagram"></i></a>
+                <a href="javascript:void(0)" class="link"><i class="ti-rss"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- core  -->
+    <script src="assets/vendors/jquery/jquery-3.4.1.js"></script>
+    <script src="assets/vendors/bootstrap/bootstrap.bundle.js"></script>
+    <!-- bootstrap 3 affix -->
+    <script src="assets/vendors/bootstrap/bootstrap.affix.js"></script>
+    <!-- Rubic js -->
+    <script src="assets/js/rubic.js"></script>
+
+</body>
+
+</html>
